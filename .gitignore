@@ -1,4 +1,24 @@
+
+# dependencies
 node_modules
 config/default.json
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.DS_Store
 .env
+/client/.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 deploy.sh
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
