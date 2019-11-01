@@ -32,7 +32,8 @@ const ContactState = props => {
         phone: "123-123-123"
       }
     ],
-    current: null
+    current: null,
+    filtered: null
   };
 
   // state allows us to access anything in state
@@ -69,8 +70,14 @@ const ContactState = props => {
   };
 
   // filter contacts
+  const filterContacts = text => {
+    dispatch({ type: FILTER_CONTACTS, payload: text });
+  };
 
   // clear filter
+  const clearFilter = () => {
+    dispatch({ type: CLEAR_FILTER });
+  };
 
   return (
     <contactContext.Provider
@@ -78,11 +85,14 @@ const ContactState = props => {
         // anything that we wanna be able to access from other components including state and actions need to go in here
         contacts: state.contacts,
         current: state.current,
+        filtered: state.filtered,
         addContact,
         deleteContact,
         setCurrent,
         clearCurrent,
-        updateContact
+        updateContact,
+        filterContacts,
+        clearFilter
       }}
     >
       {props.children}
